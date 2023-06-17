@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello, Vue.js!!</title>
+    <script src="./assets/js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1 :style="myStyle">{{ mensagem }}</h1>
+        <button v-on:click="exibeAlerta">Clique aqui!</button>
+        <br><br>
+        <button v-on:click="mudaCor">Change Color do H1!</button>
+        <br><br>
+        <button v-on:click="mudaMensagem('Novo conteúdo!')">Muda msg do H1!</button>
+    </div>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                
+                mensagem: 'Essa é a minha mensagem, de dentro do data',
+                texto: 'Something different in this text sendo add',
+                listas: {
+                    id: 1,
+                    nome: 'André Albernaz',
+                    idioma: 'Português e Inglês',
+                    
+                },
+                arrayList: [
+                    {
+                        id: 7,
+                        nome: 'Chacal',
+                        idioma: 'Espanhol do Array'
+                    },
+                    {
+                        id: 8,
+                        nome: 'Jonas',
+                        idioma: 'Inglês do Array'
+                    },
+                    {
+                        id: 9,
+                        nome: 'Marina',
+                        idioma: 'Aramaico do Array'
+                    },
+                ],
+                verifica: true,
+                myStyle: {
+                    color: 'red',
+                }
+            },
+            // onde colocaremos as functions
+            methods: {
+                
+                exibeAlerta: function(){
+                    var mensagem = "Essa daqui é outra mensagem."
+                    // se nao colocarmos o this, exibira a mensagem da variavel logo acima
+                    alert( this.mensagem )   
+                },
+
+                mudaCor: function(){
+                    this.verifica ? this.myStyle = { color: 'red' } : this.myStyle = { color: 'blue' }
+                    this.verifica = !this.verifica
+                },
+
+                mudaMensagem: function( param ){
+                    this.mensagem = param + ' ' + this.texto
+                }
+
+            }
+        });
+    </script>
+</body>
+</html>

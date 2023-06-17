@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello, Vue.js!!</title>
+    <script src="./assets/js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <p>Digite algo para ser exibido:</p>
+        <input type="text" v-model="conteudo" placeholder="Digite algo..." />
+        <p v-if="conteudo == 'Andre'">{{ conteudo }} Albernaz</p>
+        <p v-else>{{ conteudo }}</p>
+    </div>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                mensagem: 'Olá, Vue.js! Meu olá, Mundo',
+                listas: {
+                    id: 1,
+                    nome: 'André Albernaz',
+                    idioma: 'Português e Inglês',
+                    
+                },
+                arrayList: [
+                    {
+                        id: 7,
+                        nome: 'Chacal',
+                        idioma: 'Espanhol do Array'
+                    },
+                    {
+                        id: 8,
+                        nome: 'Jonas',
+                        idioma: 'Inglês do Array'
+                    },
+                    {
+                        id: 9,
+                        nome: 'Marina',
+                        idioma: 'Aramaico do Array'
+                    },
+                ],
+
+                verifica: true,
+                numero: 3,
+                conteudo: "",
+            }
+        });
+    </script>
+</body>
+</html>
